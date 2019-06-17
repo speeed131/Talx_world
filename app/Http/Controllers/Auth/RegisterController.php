@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
+
 class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Register Controller
+    | Register Controller:
     |--------------------------------------------------------------------------
     |
     | This controller handles the registration of new users as well as their
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/'; //プロフィール画面に飛ばす
 
     /**
      * Create a new controller instance.
