@@ -19,4 +19,14 @@ Auth::routes();
 
 Route::get('/', 'UserController@index')->name('users.index');
 
+Route::get('/users/search', 'UserController@search')->name('users.search');
+
+// // ResourceControllerで使用したコントローラーにメソッドを追加する時は、
+// 必ずResourceControllerのルートの上に記述しましょう。
+// ResourceControllerのルートの下に記述すると404エラーとなります。
+
+
 Route::resource('/users','UserController', ['except'=> ['index']]);
+
+
+

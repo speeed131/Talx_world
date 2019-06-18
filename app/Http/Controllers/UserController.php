@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = User::whereNotIn('id', [auth()->user()->id])->paginate(5);
 
         return view('users.index',[
             'users' => $users,
@@ -112,5 +112,28 @@ class UserController extends Controller
         $user = User::find($user->id);
         $user->delete();
         return redirect("/");
+    }
+
+    public function search(Request $request, User $user){
+
+        $users = User::where('name', 'like', "%{$request->search}%")
+                ->orwhere('user_nationality', 'like', "%{$request->search}%")
+                ->orwhere('user_learning_language', 'like', "%{$request->search}%")
+                ->orwhere('user_topic', 'like', "%{$request->search}%")
+                ->orwhere('user_introduce', 'like', "%{$request->search}%")
+
+                ->paginate(5);    //paginateはユーザーの表示数
+
+
+        $search_result = $request->search.'の検索結果';
+
+
+
+        return view('users.index',[
+            'users' => $users,
+            'search_result' => $search_result,
+            'request' => $request
+                ]);
+
     }
 }
