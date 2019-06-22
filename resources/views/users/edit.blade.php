@@ -23,7 +23,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('users.update', $user->id ) }}" method="POST">
+                    <form action="{{ route('users.update', $user->id ) }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     @method('PUT')
                         <!-- <div class="form-group">
@@ -37,6 +37,10 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">名前</label>
                             <input type="text" class="form-control" name="name" value="{{ $user->name }}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="inputImage">画像</label>
+                            <input type="file" name="user_image"  class="form-control-file">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">国籍</label>

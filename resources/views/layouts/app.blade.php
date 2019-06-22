@@ -56,7 +56,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('users.index') }}" class="dropdown-item">ユーザー検索</a>
-                                    <a href="" class="dropdown-item">チャットユーザー一覧</a>
+                                    <a href="{{ route('comments.create', 'user_post_id='.Auth::id()) }}" class="dropdown-item">My Post</a>
+
 
                                     <a href="{{ route('users.show', Auth::id()) }}" class="dropdown-item">プロフィール詳細</a>
 

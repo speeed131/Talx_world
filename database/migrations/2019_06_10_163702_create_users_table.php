@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
         });
     }
 
-    /**
+    /*
      * Reverse the migrations.
      *
      * @return void
@@ -35,5 +35,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        $table->dropColumn('user_image'); 
+
     }
 }

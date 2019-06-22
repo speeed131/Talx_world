@@ -50,8 +50,10 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
+
         $user = New User;
         $input = $request->only($user->getFillable());
+
 
 
         $user = $user->create($input);
@@ -81,6 +83,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+
         if($user->id == auth()->user()->id){
             return view('users.edit', ['user' => $user]);
         }
@@ -96,9 +99,22 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $originalImg = $request->user_image;
+
         $user->fill($request->all()); //fill関数に入れてる
         $user->save(); //データベースに保存
-        return redirect("users/{$user->id}"); //
+
+        if(!empty($originalImg)) {
+          $filePath = $originalImg->store('public');
+          $user->user_image = str_replace('public/', '', $filePath);
+          $user->save();
+        }
+        else{
+            return redirect("/users/{$user->id}")->with('user', $user);
+
+        }
+        return redirect("/users/{$user->id}")->with('user', $user);
+
     }
 
     /**
@@ -116,14 +132,14 @@ class UserController extends Controller
 
     public function search(Request $request, User $user){
 
-        $users = User::where('name', 'like', "%{$request->search}%")
+        $users = User::whereNotIn('id', [auth()->user()->id])
+                ->where('name', 'like', "%{$request->search}%")
                 ->orwhere('user_nationality', 'like', "%{$request->search}%")
                 ->orwhere('user_learning_language', 'like', "%{$request->search}%")
                 ->orwhere('user_topic', 'like', "%{$request->search}%")
                 ->orwhere('user_introduce', 'like', "%{$request->search}%")
 
                 ->paginate(5);    //paginateはユーザーの表示数
-
 
         $search_result = $request->search.'の検索結果';
 

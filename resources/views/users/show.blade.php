@@ -16,7 +16,9 @@
 
                         <div class="card">
                             <h5 class="card-header">{{ $user->name }}</h5>
-                            <img src="..." class="card-img-top" alt="...">
+
+                                <img src="/storage/{{ $user->user_image }}" class="card-img img-fluid rounded">
+
                             <div class="card-body">
                                 <h5 class="card-title">{{ $user->user_nationality }}</h5>
                                 <h5 class="card-title">{{ $user->user_learning_language }}</h5>
@@ -30,7 +32,8 @@
                                     {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
                                 {!!Form::close() !!}
                                 @else
-                                <a href="#" class="btn btn-danger ">Chat</a>
+                                <a href="{{ route('comments.create', ['user_post_id' => $user->id] ) }}" class="btn btn-danger ">Chat</a>
+                                <a href=""></a>
                                 @endif
                             </div>
                         </div>
