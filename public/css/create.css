@@ -1,0 +1,23 @@
+
+.chat_message{
+  font-family: 'Fredoka One', cursive;
+  font-size: 13px;
+  background: #1e3c72;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+	/* background: #7F7FD5;
+	background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+	background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); */
+}
+
+.comment_card_header{
+  font-size: 14px;
+  color:#DE7A22;
+}
+
+.btn_post{
+  background-color: #DE7A22;
+  color: white;
+  width: 50%;
+}

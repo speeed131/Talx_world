@@ -1,0 +1,14 @@
+.container_register{
+    background: #6190E8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #a7bfe8, rgb(144, 177, 238));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, rgb(147, 181, 238), rgb(151, 182, 241)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    height:580px;
+ width:90%;
+ font-family: 'Fredoka One', cursive;
+
+}
+
+.btn_register{
+    width: 100%;
+}

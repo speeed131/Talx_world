@@ -1,0 +1,33 @@
+.container_edit{
+    font-size: 16px;
+    font-family: 'Fredoka One', cursive;
+    color: #666;
+
+}
+.edit_form input{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    background: #6190E8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, rgb(147, 181, 238), #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color:white
+}
+.edit_form textarea{
+    text-align: center;
+    background: #6190E8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, rgb(147, 181, 238), #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color:white
+}
+
+.edit_form .btn{
+    width: 50%;
+    background: #6190E8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #a7bfe8, rgb(144, 177, 238));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, rgb(147, 181, 238), rgb(151, 182, 241)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+

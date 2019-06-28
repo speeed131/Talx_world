@@ -1,0 +1,35 @@
+.index_container{
+    font-family: 'Fredoka One', cursive;
+    /* font-family: 'Alike', serif; */
+    font-size: 14px;
+}
+.search_result{
+    background: #6190E8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+.index_container .btn{
+    background: #6190E8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+.index_users{
+    /* background-color:rgba(196, 223, 238, 0.65); */
+}
+
+
+.index_table {
+    border-spacing: 0 10px;
+    color: #666;
+}
+.users_name{
+    color: #DE7A22
+}
+.users_table a:action{
+    color: rgb(245, 117, 4)
+}
+
+

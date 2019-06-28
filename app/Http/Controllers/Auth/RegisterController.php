@@ -29,9 +29,11 @@ class RegisterController extends Controller
      * Where to redirect users after registration.
      *
      * @var string
-     */
-    protected $redirectTo = '/'; //プロフィール画面に飛ばす
-
+     */ //プロフィール画面に飛ばす
+    protected function redirectTo()
+    {
+        return '/users/'.auth()->user()->id.'/edit';
+    }
     /**
      * Create a new controller instance.
      *

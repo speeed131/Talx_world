@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container create_container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Users</div>
-
+        <div class="col-md-8 ">
+            <div class="card chat_container">
+                <!-- <div class="card-header">
+                 
+                </div> -->
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -26,21 +27,28 @@
 
 
                     @foreach($messages as $message)
-                        <div class="card">
-                            <h5 class="card-header">{{ $message->user->name }}</h5>
-                            <div class="card-body">
+                        <div class="card chat_message text-white">
+                            <h5 class="card-header comment_card_header">
+                                @if(!empty($message->user->user_image) )
+                                <img src="/storage/{{ $message->user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                                @endif
+                                {{ $message->user->name }}</h5>
+                            <div class="card-body ">
                                 <p class="card-text">{{ $message->message_text }}</p>
                             </div>
                         </div>
                     @endforeach
 
 
-                    <form action="{{ route('comments.store') }}" method="POST" enctype="multipart/form-data">
+
+
+
+                    <form action="{{ route('comments.store') }}" method="POST" enctype="multipart/form-data" class="text-center">
                     {{ csrf_field() }}
 
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">コメント</label>
-                            <textarea class="form-control" rows="10" name="message_text" id="message_text" ></textarea>
+                        <div class="form-group mt-3">
+                            <label for="exampleFormControlTextarea1"></label>
+                            <textarea class="form-control" rows="5" name="message_text" id="message_text" ></textarea>
                         </div>
 
 
@@ -48,7 +56,7 @@
                         <input type="hidden" name="user_post_id" value='{{ $user_post_id }}'>
 
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn_post mt-3">Post</button>
                     </form>
 
                 </div>

@@ -30,8 +30,8 @@ class UserRequest extends FormRequest
             'user_image' => 'required|file|image',
             'user_nationality' => 'required',
             'user_learning_language' => 'required',
-            'user_topic' => 'required',
-            'user_introduce' => 'required',
+            'user_topic' => 'required|max:120',
+            'user_introduce' => 'required|max:500',
             'user_id' => '',
             'email' => '',
 

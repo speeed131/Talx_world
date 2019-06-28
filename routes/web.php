@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('/');
+    return view('/top');
 });
 
 Auth::routes();
@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/', 'UserController@index')->name('users.index');
 Route::get('/users/search', 'UserController@search')->name('users.search');
 
-
+Route::get('/users/confirm', 'UserController@confirm')->name('users.confirm');
 // // ResourceControllerで使用したコントローラーにメソッドを追加する時は、
 // 必ずResourceControllerのルートの上に記述しましょう。
 // ResourceControllerのルートの下に記述すると404エラーとなります。

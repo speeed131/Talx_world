@@ -52,6 +52,13 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request)
     {
+        if($request->message_text == ""){
+            return view('comments.create',[
+                'user_post_id' => $requset->user_post_id,
+                'messages' => $messages,
+            ])->with('user_post_id', $request->user_post_id);
+        }
+
         $comment = New Comment_Message;
         $input = $request->only($comment->getFillable());
 
@@ -59,10 +66,14 @@ class CommentController extends Controller
         $messages = Comment_Message::whereIn('user_post_id', [$request->user_post_id])->get();
 
 
-        return view('comments.create', [
+        // $request->session()->regenerateToken();
+
+        return view('comments.create',[
             'user_post_id' => $request->user_post_id,
             'messages' => $messages,
         ])->with('user_post_id', $request->user_post_id);
+
+
     }
 
     /**
