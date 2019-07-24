@@ -13,7 +13,15 @@ class CommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if($this->path() == 'comment')
+        {
+            return false;
+
+        }
+        else{
+            return true;
+        }
+        // return true;
     }
 
     /**

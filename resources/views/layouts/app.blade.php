@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/create.css') }}">
     <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+    
 
 </head>
 <body>
@@ -51,12 +52,12 @@
                     <ul class="navbar-nav ml-auto nav_menu">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li cl  zass="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}" style="color: white;">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="color: white";>{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else

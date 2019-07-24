@@ -24,7 +24,7 @@
 
                     <form action="{{ route('users.update', $user->id ) }}" method="POST" enctype="multipart/form-data" class="edit_form text-center ">
                     {{ csrf_field() }}
-                    @method('PUT')
+                    @method('PATCH')
 
                         <div class="form-group">
                             <label for="name">Name</label>

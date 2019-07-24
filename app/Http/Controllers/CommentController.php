@@ -18,7 +18,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-
+        
     }
 
     /**
@@ -26,6 +26,17 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function returncreate(User $user){
+        $q = \Request::query();
+        $count = \App\User::max('id');
+        if($q['user_post_id'] > $count){
+            abort(403);
+        }
+        return view('comments.create',[
+            'user_post_id' => $q['user_post_id'],
+        ]);
+    }
+
     public function create(User $user)
     {
 

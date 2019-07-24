@@ -6,7 +6,7 @@
         <div class="col-md-8 ">
             <div class="card chat_container">
                 <!-- <div class="card-header">
-                 
+
                 </div> -->
                 <div class="card-body">
                     @if (session('status'))
@@ -40,8 +40,12 @@
                     @endforeach
 
 
-
-
+<!-- 
+                    <div id="chat">
+                        <textarea rows="5" name="message_text" id="message_text" v-model="message" ></textarea>
+                        <br>
+                        <input type="button" value="送信">
+                    </div> -->
 
                     <form action="{{ route('comments.store') }}" method="POST" enctype="multipart/form-data" class="text-center">
                     {{ csrf_field() }}

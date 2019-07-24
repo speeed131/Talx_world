@@ -24,10 +24,11 @@
                     @endif
 
                     <form action="{{ route('users.store') }}" method="post">
+                    {{-- routeのresourseの中のusers.storeに飛ばしている　--}}
                     {{ csrf_field() }}
                         <!-- <div class="form-group">
                             <label for="exampleInputEmail1">名前</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" cflass="form-control" name="name">
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div> -->
                         <!-- <div class="form-image_url">

@@ -9,6 +9,10 @@ class Comment_Message extends Model
 
     protected $table = 'comment_messages';
 
+    protected $guarded = [
+        'id'
+    ];
+
     protected $fillable = [
         'user_post_id', 'user_id', 'message_text'
     ];

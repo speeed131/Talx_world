@@ -26,9 +26,6 @@ class CreateCommentMessagesTable extends Migration
 
 
 
-
-
-
             $table->timestamps();
         });
     }

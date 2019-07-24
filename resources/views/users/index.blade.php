@@ -26,7 +26,7 @@
         <div class="col-md-10 index_users">
             <div class="card text-center search_result">
                 <div class="card-header">
-                    <b>   Users </b>
+                    <b>Users</b>
                 </div>
                     @isset($request->search)
                         <p>{{ $search_result }}</p>
@@ -70,7 +70,7 @@
                         @foreach($users as $user)
                             <tr class="">
                                 <th class="" scope="row" style="width: 25%; height: 80px" class="users_table">
-                                    <a href=" {{ route('users.show', $user->id) }}" class="users_name">
+                                    <a href=" {{ route('users.show', $user) }}" class="users_name">
                                     {{ $user->name }}
                                     @if(!empty($user->user_image) )
                                     <img src="/storage/{{ $user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">

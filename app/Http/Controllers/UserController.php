@@ -53,12 +53,9 @@ class UserController extends Controller
 
         $user = New User;
         $input = $request->only($user->getFillable());
-
-
-
         $user = $user->create($input);
 
-        redirect('/');
+        return redirect('/');
     }
 
     /**
@@ -104,6 +101,7 @@ class UserController extends Controller
         $user->fill($request->all()); //fill関数に入れてる
         $user->save(); //データベースに保存
 
+
         if(!empty($originalImg)) {
           $filePath = $originalImg->store('public');
           $user->user_image = str_replace('public/', '', $filePath);
@@ -111,9 +109,9 @@ class UserController extends Controller
         }
         else{
             return redirect("/users/{$user->id}")->with('user', $user);
-
         }
         return redirect("/users/{$user->id}")->with('user', $user);
+
 
     }
 
@@ -125,7 +123,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-       
         $user = User::find($user->id);
         $user->delete();
         return redirect("/");
@@ -153,7 +150,7 @@ class UserController extends Controller
                 ]);
 
     }
-    
+
     public function confirm(User $user){
         $id = auth()->user()->id;
         $user = User::find($id);
@@ -163,4 +160,6 @@ class UserController extends Controller
 
         ]);
     }
+
+
 }
