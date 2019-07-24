@@ -69,7 +69,7 @@
                                 <a href="{{ route('users.confirm', $user) }}" class="btn btn_account mt-4">Account</a>
                                 </div>
                                 @else
-                                <a href="{{ route('comments.create', ['user_post_id' => $user->id] ) }}" class="btn btn_account ml-4">Chat</a>
+                                <a href="{{ route('ajax.chat', ['user_post_id' => $user->id] ) }}" class="btn btn_account ml-4">Chat</a>
                                 <a href=""></a>
                                 @endif
                             <!-- </div> -->

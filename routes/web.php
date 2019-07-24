@@ -18,13 +18,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('ajax/chat', 'Ajax\ChatController@index')->name('ajax.chat'); //メッセージ一覧を取得
+Route::post('/ajax/chat', 'Ajax\ChatController@create'); //チャット登録
+
+
 Route::get('/', 'UserController@index')->name('users.index');
 Route::get('/users/search', 'UserController@search')->name('users.search');
 
 Route::get('/users/confirm', 'UserController@confirm')->name('users.confirm');
 
-Route::get('/comments/create', 'CommentController@returncreate')->name('comennts.create');
-Route::post('/comments/create', 'CommentController@create');
 
 // // ResourceControllerで使用したコントローラーにメソッドを追加する時は、
 // 必ずResourceControllerのルートの上に記述しましょう。
@@ -34,7 +36,6 @@ Route::post('/comments/create', 'CommentController@create');
 Route::resource('/users','UserController', ['except'=> ['index']]);
 
 
-Route::resource('/comments','CommentController')->middleware('auth');
 
 
 

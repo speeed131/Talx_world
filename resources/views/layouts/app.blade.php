@@ -68,7 +68,7 @@
                             
                             <li class="nav-item dropdown" aria-labelledby="navbarDropdown" >
                                     <a href="{{ route('users.index') }}" class="dropdown-item nav_menu" style="color: white; :active: none;">User search</a>
-                                    <a href="{{ route('comments.create', 'user_post_id='.Auth::id()) }}" class="dropdown-item" style="color: white;">My Post</a>
+                                    <a href="{{ route('ajax.chat', 'user_post_id='.Auth::id()) }}" class="dropdown-item" style="color: white;">My Post</a>
 
 
                                     <a href="{{ route('users.show', Auth::id()) }}" class="dropdown-item" style="color: white;">My Profile</a>
