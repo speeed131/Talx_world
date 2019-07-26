@@ -61,7 +61,11 @@
                                     </tbody>
                                 </table>
                             </div>
-                                
+                            @if(!empty($followingeachother))
+                                <a href="{{ route('users.unfollow',$user) }}" class="btn btn-danger">UnFollow</a>
+                            @else
+                                <a href="{{ route('users.follow',$user) }}" class="btn btn-danger">Follow</a>
+                            @endif
                                 <a href="{{ route('users.index') }}" class="btn btn-secondary">Back</a>
                                 @if( Auth::id() == $user->id)
                                 <a href="{{ route('users.edit', $user) }}" class="btn btn-primary ml-4 edit_profile_button" >Edit profile</a>
@@ -74,8 +78,7 @@
                                 @endif
                             <!-- </div> -->
                 <!-- </div> -->
-
-
+                    
         </div>
     </div>
 </div>

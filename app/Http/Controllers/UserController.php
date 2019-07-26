@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UserRequest;
-
+use Auth;
+use DB;
 
 class UserController extends Controller
 {
@@ -67,8 +68,19 @@ class UserController extends Controller
     public function show(User $user)
     {
 
+        $login_id = Auth::id();
+        $followingeachother = DB::table('followables')
+        ->where('user_id', $login_id)
+        ->where('followable_id', $user->id)
+        ->first();
+
+
+
+
+
         return view('users.show',[
             'user' => $user,
+            'followingeachother' => $followingeachother,
             ]);
     }
 
@@ -161,5 +173,58 @@ class UserController extends Controller
         ]);
     }
 
+    public function follow(User $user){
 
+
+        $login_user =Auth::user();
+        $login_user->follow($user);
+
+        $login_id = Auth::id();
+        $followingeachother = DB::table('followables')
+        ->where('user_id', $login_id)
+        ->where('followable_id', $user->id)
+        ->first();
+
+        if(!empty($followingeachother)){
+            return view('users.show',[
+                'user' => $user,
+                'followingeachother' => $followingeachother,
+                ]);
+        }
+
+
+        return view('users.show',[
+            'user' => $user
+
+        ]);
+    }
+    public function unfollow(User $user){
+
+
+        $login_user =Auth::user();
+        $login_user->unfollow($user);
+
+        return view('users.show',[
+            'user' => $user
+
+        ]);
+    }
+
+
+    public function following(User $user){
+        $following_users = $user->followings()->get();
+
+        $be_followed_users = $user->followers()->get();
+
+        $follow_users_number = count($following_users);
+        
+        $be_followed_users_number = count($be_followed_users);
+
+        return view('users.following',[
+            'following_users' => $following_users,
+            'be_followed_users' => $be_followed_users,
+            'follow_users_number' => $follow_users_number,
+            'be_followed_users_number' => $be_followed_users_number,
+        ]);
+    }
 }

@@ -72,6 +72,8 @@
 
 
                                     <a href="{{ route('users.show', Auth::id()) }}" class="dropdown-item" style="color: white;">My Profile</a>
+                                    <a href="{{ route('users.following', Auth::id()) }}" class="dropdown-item" style="color: white;">My Follow User</a>
+
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

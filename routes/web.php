@@ -18,6 +18,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/users/following/{user}', 'UserController@following')->name('users.following');
+
+Route::get('/users/follow/{user}', 'UserController@follow')->name('users.follow');
+Route::get('/users/unfollow/{user}', 'UserController@unfollow')->name('users.unfollow');
+
 Route::get('/', 'UserController@index')->name('users.index');
 Route::get('/users/search', 'UserController@search')->name('users.search');
 
