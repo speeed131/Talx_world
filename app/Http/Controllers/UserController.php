@@ -25,6 +25,8 @@ class UserController extends Controller
         $login_id = Auth::id();
         $users = User::whereNotIn('id', [$login_id])->paginate(8);
 
+        //whereNotInで配列を渡す！
+
         return view('users.index',[
             'users' => $users,
             ]);                         //resourceのviewsのusersフォルダのindex.blade.phpに'users'の値を$usersという変数で渡すという意味
@@ -111,11 +113,14 @@ class UserController extends Controller
 
         $user->fill($request->all()); //fill関数に入れてる
         $user->save(); //データベースに保存
-
+        $image = base64_encode(file_get_contents($roriginalImg->getRealPath()));
+      
+        
 
         if(!empty($originalImg)) {
           $filePath = $originalImg->store('public');
           $user->user_image = str_replace('public/', '', $filePath);
+          $user->user_image = base64_encode(file_get_contents($roriginalImg->getRealPath()));
           $user->save();
         }
         else{
