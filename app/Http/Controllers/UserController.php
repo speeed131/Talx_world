@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::whereNotIn('id', [auth()->user()->id])->paginate(8);
+        $users = User::whereNotIn('id', Auth::id())->paginate(8);
 
         return view('users.index',[
             'users' => $users,
@@ -73,8 +73,6 @@ class UserController extends Controller
         ->where('user_id', $login_id)
         ->where('followable_id', $user->id)
         ->first();
-
-
 
 
 
@@ -179,6 +177,7 @@ class UserController extends Controller
         $login_user =Auth::user();
         $login_user->follow($user);
 
+
         $login_id = Auth::id();
         $followingeachother = DB::table('followables')
         ->where('user_id', $login_id)
@@ -199,6 +198,7 @@ class UserController extends Controller
         ]);
     }
     public function unfollow(User $user){
+        //unfollowボタンを押したら、フォローボタンを表示させたい。つまり、データを渡さない。
 
 
         $login_user =Auth::user();
