@@ -22,7 +22,8 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::whereNotIn('id', Auth::id())->paginate(8);
+        $login_id = Auth::id();
+        $users = User::whereNotIn('id', [$login_id])->paginate(8);
 
         return view('users.index',[
             'users' => $users,
