@@ -113,7 +113,7 @@ class UserController extends Controller
 
         $user->fill($request->all()); //fill関数に入れてる
         $user->save(); //データベースに保存
-        $image = base64_encode(file_get_contents($roriginalImg->getRealPath()));
+        $image = base64_encode(file_get_contents($originalImg->getRealPath()));
       
         
 
