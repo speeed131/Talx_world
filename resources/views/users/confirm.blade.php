@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container show_container ">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,11 +13,14 @@
                     @endif
 
                     
+                    <a href=" {{ route('users.show', $user) }}" class="btn btn-secondary">
+                        Back
+                    </a>    
 
                     <form style="display:inline" action="{{ url('/') }}" method="get">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-danger float-right" style="">
                             {{ __('Account Delete') }}
                         </button>
                         <input type="hidden" name="user" value="$user->id">

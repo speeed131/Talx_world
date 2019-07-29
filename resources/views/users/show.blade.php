@@ -61,21 +61,21 @@
                                     </tbody>
                                 </table>
                             </div>
-                            @if(!empty($followingeachother))
-                                <a href="{{ route('users.unfollow',$user) }}" class="btn btn-danger">UnFollow</a>
-                            @else
-                                <a href="{{ route('users.follow',$user) }}" class="btn btn-danger">Follow</a>
-                            @endif
+    
                                 <a href="{{ route('users.index') }}" class="btn btn-secondary">Back</a>
                                 @if( Auth::id() == $user->id)
-                                <a href="{{ route('users.edit', $user) }}" class="btn btn-primary ml-4 edit_profile_button" >Edit profile</a>
-                                <div class="block">
-                                <a href="{{ route('users.confirm', $user) }}" class="btn btn_account mt-4">Account</a>
-                                </div>
+                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-primary ml-4 edit_profile_button" >Edit profile</a>
+                                    <a href="{{ route('users.confirm', $user) }}" class="btn btn_account mt-4">Account</a>
                                 @else
-                                <a href="{{ route('comments.create', ['user_post_id' => $user->id] ) }}" class="btn btn_account ml-4">Chat</a>
-                                <a href=""></a>
+                                    <a href="{{ route('comments.create', ['user_post_id' => $user->id] ) }}" class="btn btn_account ml-4">Chat</a>
+
+                                        @if(!empty($followingeachother))
+                                            <a href="{{ route('users.unfollow',$user) }}" class="btn btn_follow mt-4 ">UnFollow</a>
+                                        @else
+                                            <a href="{{ route('users.follow',$user) }}" class="btn btn_follow mt-4 ">Follow</a>
+                                        @endif                                    
                                 @endif
+   
                             <!-- </div> -->
                 <!-- </div> -->
                     

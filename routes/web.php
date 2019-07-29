@@ -28,18 +28,16 @@ Route::get('/users/search', 'UserController@search')->name('users.search');
 
 Route::get('/users/confirm', 'UserController@confirm')->name('users.confirm');
 
-Route::get('/comments/create', 'CommentController@returncreate')->name('comennts.create');
-Route::post('/comments/create', 'CommentController@create');
 
 // // ResourceControllerで使用したコントローラーにメソッドを追加する時は、
 // 必ずResourceControllerのルートの上に記述しましょう。
 // ResourceControllerのルートの下に記述すると404エラーとなります。
 
 
-Route::resource('/users','UserController', ['except'=> ['index']]);
+Route::resource('/users','UserController', ['except'=> ['index', 'create']]);
 
 
-Route::resource('/comments','CommentController')->middleware('auth');
+Route::resource('/comments','CommentController',['only' => ['create', 'store']])->middleware('auth');
 
 
 

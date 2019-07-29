@@ -79,10 +79,10 @@ class CommentController extends Controller
 
         // $request->session()->regenerateToken();
 
-        return view('comments.create',[
-            'user_post_id' => $request->user_post_id,
-            'messages' => $messages,
-        ])->with('user_post_id', $request->user_post_id);
+        return redirect()->route('comments.create', 
+        ['user_post_id' => $request->user_post_id,
+        'messages' => $messages,
+        ]);
 
 
     }

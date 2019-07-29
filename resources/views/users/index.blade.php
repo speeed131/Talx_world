@@ -31,33 +31,8 @@
                     @isset($request->search)
                         <p>{{ $search_result }}</p>
                     @endisset
-                <!-- <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                </div> -->
             </div>
-            
 
-<!--
-                    @foreach($users as $user)
-                    <div class="d-flex flex-row htxs-flex-container">
-                        <a href=" {{ route('users.show', $user->id) }}">
-
-                                <div class="p-2">
-                                             @if(!empty($user->user_image) )
-                                                <img src="/storage/{{ $user->user_image }}" class="img-fluid rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
-                                            @endif
-                                </div>
-                                <div class="p-2">{{ $user->name }}</div>
-                                <div class="p-2">{{ $user->user_nationality }}</div>
-                                <div class="p-2">{{ $user->user_topic }}</div>
-
-                        </a>
-                    </div>
-                    @endforeach -->
                         <table class="table  table-bordered index_table" style="width: 100%; word-break: break-word;">
 
                         <tbody>

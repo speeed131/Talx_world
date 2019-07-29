@@ -169,7 +169,6 @@ class UserController extends Controller
     public function confirm(User $user){
         $id = auth()->user()->id;
         $user = User::find($id);
-        $user->delete();
         return view('users.confirm',[
             'user' => $user
 
