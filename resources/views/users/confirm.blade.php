@@ -17,7 +17,7 @@
                         Back
                     </a>    
 
-                    <form style="display:inline" action="{{ url('/') }}" method="get">
+                    <form style="display:inline" action="{{ route('users.destroy', $user) }}" method="post">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn btn-danger float-right" style="">
