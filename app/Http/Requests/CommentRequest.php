@@ -32,9 +32,7 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_post_id' => 'required|numeric',
-            'user_id' => 'required|numeric',
-            'message_text' => 'required|',
+            'message_text' => 'required|string|max:300',
         ];
     }
 }

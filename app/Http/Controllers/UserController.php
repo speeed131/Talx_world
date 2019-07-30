@@ -109,7 +109,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $originalImg = $request->user_image;
 
@@ -152,7 +152,7 @@ class UserController extends Controller
         return redirect("/");
     }
 
-    
+
     public function search(Request $request, User $user){
 
         $users = User::whereNotIn('id', [auth()->user()->id])

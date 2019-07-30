@@ -27,14 +27,11 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'user_image' => 'required|file|image',
-            'user_nationality' => 'required',
-            'user_learning_language' => 'required',
-            'user_topic' => 'required|max:120',
-            'user_introduce' => 'required|max:500',
-            'user_id' => '',
-            'email' => '',
-
+            'user_image' => 'file|image|size:700',
+            'user_nationality' => 'present',
+            'user_learning_language' => 'present',
+            'user_topic' => 'present|max:40',
+            'user_introduce' => 'present|max:700',
         ];
     }
 }
