@@ -152,6 +152,7 @@ class UserController extends Controller
         return redirect("/");
     }
 
+    
     public function search(Request $request, User $user){
 
         $users = User::whereNotIn('id', [auth()->user()->id])
