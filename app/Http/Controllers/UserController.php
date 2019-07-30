@@ -7,6 +7,8 @@ use App\User;
 use App\Http\Requests\UserRequest;
 use Auth;
 use DB;
+use JD\Cloudder\Facades\Cloudder;
+
 
 class UserController extends Controller
 {
@@ -111,17 +113,24 @@ class UserController extends Controller
     {
         $originalImg = $request->user_image;
 
-        $user->fill($request->all()); //fill関数に入れてる
+
+        $user->fill($request->except(['user_image'])); //fill関数に入れてる
         $user->save(); //データベースに保存
-      
-        
 
         if(!empty($originalImg)) {
-          $filePath = $originalImg->store('public');
-          $user->user_image = str_replace('public/', '', $filePath);
-          $user->user_image = base64_encode(file_get_contents($originalImg->getRealPath()));
-          $user->save();
+         $image_name = $originalImg->getRealPath();
+        Cloudder::upload($image_name, null);
+        list($width, $height) = getimagesize($image_name);
+        $publicId = Cloudder::getPublicId();
+        // URLを生成します
+        $logoUrl = Cloudder::show($publicId, [
+            'width'     => $width,
+            'height'    => $height
+        ]);
+        $user->user_image = $logoUrl;
+        $user->save();
         }
+
         else{
             return redirect("/users/{$user->id}")->with('user', $user);
         }

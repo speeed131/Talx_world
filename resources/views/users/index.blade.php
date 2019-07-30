@@ -48,7 +48,7 @@
                                     <a href=" {{ route('users.show', $user) }}" class="users_name">
                                     {{ $user->name }}
                                     @if(!empty($user->user_image) )
-                                    <img src="data:image/png;base64,{{ $user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                                    <img src="{{ $user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                                     @endif
                                     </a>
                                 </th>

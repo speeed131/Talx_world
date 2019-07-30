@@ -34,7 +34,7 @@
                             <label for="inputImage">Image</label>
                             <input type="file" name="user_image"  class="form-control-file" >
                             @if(!empty($user->user_image) )
-                            <img src="data:image/png;base64,{{ $user->user_image }}" class="img-fluid  " style="width: 80%; height: auto; object-fit: cover;">
+                                <img src="{{ $user->user_image }}" class="img-fluid " style="width: 80%; height: auto; object-fit: cover;">
                             @endif
 
                         </div>
