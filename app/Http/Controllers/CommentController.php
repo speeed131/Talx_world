@@ -53,6 +53,8 @@ class CommentController extends Controller
             'messages' => $messages,
 
         ]);
+
+        
     }
 
     /**
@@ -80,11 +82,12 @@ class CommentController extends Controller
         // $request->session()->regenerateToken();
 
         return redirect()->route('comments.create', 
-        ['user_post_id' => $request->user_post_id,
+        [
+        'user_post_id' => $request->user_post_id,
         'messages' => $messages,
+
         ]);
-
-
+       
     }
 
     /**
