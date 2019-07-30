@@ -31,7 +31,7 @@
                             <input type="text" class="form-control" name="name" value="{{ $user->name }}" >
                         </div>
                         <div class="form-group">
-    
+
                             <label for="inputImage">Image</label>
                             <input type="file" name="user_image"  class="form-control-file" >
                             @if(!empty($user->user_image) )

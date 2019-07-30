@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'user_image' => 'file|image|size:700',
+            'user_image' => 'file|image|size:500',
             'user_nationality' => 'present',
             'user_learning_language' => 'present',
             'user_topic' => 'present|max:40',
