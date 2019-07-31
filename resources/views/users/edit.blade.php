@@ -31,8 +31,6 @@
                             <input type="text" class="form-control" name="name" value="{{ $user->name }}" >
                         </div>
                         <div class="form-group">
-
-                            <label for="inputImage">Image</label>
                             <input type="file" name="user_image"  class="form-control-file" >
                             @if(!empty($user->user_image) )
                                 <img src="{{ $user->user_image }}" class="img-fluid " style="width: 80%; height: auto; object-fit: cover;">

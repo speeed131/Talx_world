@@ -27,11 +27,18 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'user_image' => 'file|image|size:500',
+            'user_image' => 'file|image',
             'user_nationality' => 'present',
             'user_learning_language' => 'present',
             'user_topic' => 'present|max:40',
             'user_introduce' => 'present|max:700',
+        ];
+    }
+
+    public function messages()
+    {
+        return[
+            'user_image.max' => "Maximum file size to upload is 1MB (1024 KB). If you are uploading a photo, try to reduce its resolution to make it under 1MB" ,
         ];
     }
 }
