@@ -41,7 +41,7 @@
                         <div class="card chat_message text-white" style="margin-top:3px;">
                             <h5 class="card-header comment_card_header">
                                 @if(!empty($message->user->user_image) )
-                                <img src="data:image/png;base64,{{ $message->user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                                <img src="{{ $message->user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                                 @endif
                                 {{ $message->user->name }}
                             </h5>

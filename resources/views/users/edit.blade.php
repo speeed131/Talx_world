@@ -50,7 +50,7 @@
                             <input type="text" class="form-control" name="user_topic" value="{{ $user->user_topic }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Introduce</label>
+                            <label for="exampleFormControlTextarea1">Introduction</label>
                             <textarea class="form-control" rows="10" name="user_introduce" >{{ $user->user_introduce }}</textarea>
                         </div>
 
