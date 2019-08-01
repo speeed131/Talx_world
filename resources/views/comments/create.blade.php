@@ -24,19 +24,32 @@
                         </div>
                     @endif
 
-
-
                     @foreach($messages as $message)
-                        <div class="card chat_message text-white">
+                        @if($message->user == Auth::user())
+                            <div class="card chat_message text-white text-right" style="margin-top:3px;">
+                                <h5 class="card-header comment_card_header ">
+                                    @if(!empty($message->user->user_image) )
+                                    <img src="data:image/png;base64,{{ $message->user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                                    @endif
+                                    {{ $message->user->name }}
+                                </h5>
+                                <div class="card-body float-right">
+                                    <p class="card-text">{{ $message->message_text }}</p>
+                                </div>
+                            </div>
+                        @else
+                        <div class="card chat_message text-white" style="margin-top:3px;">
                             <h5 class="card-header comment_card_header">
                                 @if(!empty($message->user->user_image) )
                                 <img src="data:image/png;base64,{{ $message->user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                                 @endif
-                                {{ $message->user->name }}</h5>
+                                {{ $message->user->name }}
+                            </h5>
                             <div class="card-body ">
                                 <p class="card-text">{{ $message->message_text }}</p>
                             </div>
                         </div>
+                        @endif
                     @endforeach
 
 

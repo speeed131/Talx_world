@@ -53,7 +53,7 @@
                                         <th scope="row">{{ $user->user_topic }}</th>
                                         </tr>
                                         <tr>
-                                        <th scope="row">Introduce</th>
+                                        <th scope="row">Introduction</th>
                                         </tr>
                                         <tr>
                                         <th scope="row">{{ $user->user_introduce }}</th>
@@ -73,7 +73,7 @@
                                             <a href="{{ route('users.unfollow',$user) }}" class="btn btn_follow mt-4 ">UnFollow</a>
                                         @else
                                             <a href="{{ route('users.follow',$user) }}" class="btn btn_follow mt-4 ">Follow</a>
-                                        @endif                                    
+                                        @endif
                                 @endif
    
                             <!-- </div> -->
