@@ -25,15 +25,15 @@
                                                 <a href=" {{ route('users.show', $following_user) }}" class="users_name">
                                                 {{ $following_user->name }}
                                                 @if(!empty($following_user->user_image ) )
-                                                <img src="data:image/png;base64,{{ $following_user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                                                <img src="{{ $following_user->user_image }}" class="img-fluid rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
                                                 @endif
                                                 </a>
                                             </th>
 
 
-                                            <td style="width: 25%;">{{ $following_user->nationality  }}</td>
-                                            <td style="width: 25%;">{{ $following_user->learning_language }}</td>
-                                            <td style="width: 25%;">{{ $following_user->topic }}</td>
+                                            <td style="width: 25%;">{{ $following_user->user_nationality  }}</td>
+                                            <td style="width: 25%;">{{ $following_user->user_learning_language }}</td>
+                                            <td style="width: 25%;">{{ $following_user->user_topic }}</td>
                                         </tr>
 
 
