@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <input type="file" name="user_image"  class="form-control-file" >
                             @if(!empty($user->user_image) )
-                                <img src="{{ $user->user_image }}" class="img-fluid " style="width: 80%; height: 210px; object-fit: cover;">
+                                <img src="{{ $user->user_image }}" class="img-fluid " style="width: 80%; height: 300px; object-fit: cover;">
                             @endif
 
                         </div>
