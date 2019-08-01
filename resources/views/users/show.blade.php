@@ -14,7 +14,7 @@
 
 
                             <div class="mt-3">
-                                <img src="{{ $user->user_image }}" class="img-fluid  " style="width: 80%; height: auto; object-fit: cover;">
+                                <img src="{{ $user->user_image }}" class="img-fluid " style="width: 80%; height: 210px; object-fit: cover;">
                             </div>
                             <!-- <div class="card-body"> -->
 
